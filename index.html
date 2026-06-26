@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>miras.exe</title>
+  <meta name="description"
+    content="Мирас Даулетбек — 15-летний ученик НИШ из Уральска, который занимается спортивным программированием, веб-разработкой и личными проектами.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <canvas id="particles-canvas"></canvas>
+  <div id="boot-screen" class="boot-screen">
+    <div class="boot-content">
+      <div class="boot-chrome">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+        <span class="boot-chrome-title">system boot</span>
+      </div>
+      <div class="boot-logo">
+        <span class="boot-logo-text">MIRAS.EXE</span>
+        <span class="boot-logo-ver">v1.0.0</span>
+      </div>
+      <div class="boot-terminal" id="boot-terminal"></div>
+      <div class="boot-progress-wrap">
+        <div class="boot-progress" id="boot-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+
+
+    <nav class="nav" id="nav" role="navigation" aria-label="Основная навигация">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo" aria-label="Перейти наверх">
+          <span class="nl-bracket">[</span>miras.exe<span class="nl-bracket">]</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+          <a href="#about" class="nav-link" data-section="about">обо мне</a>
+          <a href="#mission" class="nav-link" data-section="mission">миссия</a>
+          <a href="#story" class="nav-link" data-section="story">история</a>
+          <a href="#mentor" class="nav-link" data-section="mentor">наставница</a>
+          <a href="#progress" class="nav-link" data-section="progress">прогресс</a>
+          <a href="#hobbies" class="nav-link" data-section="hobbies">хобби</a>
+          <a href="#projects" class="nav-link" data-section="projects">проекты</a>
+          <a href="#github" class="nav-link" data-section="github">github</a>
+        </div>
+        <button class="nav-burger" id="nav-burger" aria-label="Открыть меню" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+
+    <section class="section hero" id="hero" aria-label="Главный экран">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>system online</span>
+          </div>
+
+          <h1 class="hero-name">
+            <span class="hn-first">Мирас</span>
+            <span class="hn-last">Даулетбек</span>
+          </h1>
+
+          <div class="hero-meta">
+            <span class="hm-item">
+              <span class="hm-key">возраст</span><span class="hm-sep">:</span><span class="hm-val">15</span>
+            </span>
+            <span class="hm-div">//</span>
+            <span class="hm-item">
+              <span class="hm-key">роль</span><span class="hm-sep">:</span><span class="hm-val"
+                id="typed-role"></span><span class="cursor-blink">_</span>
+            </span>
+          </div>
+
+          <p class="hero-sub">Ученик НИШ · спортивный программист, веб-разработчик и автор проектов</p>
+
+          <div class="hero-actions">
+            <a href="#about" class="btn btn-primary">
+              Открыть профиль &rArr;
+            </a>
+            <a href="#github" class="btn btn-ghost">GitHub</a>
+          </div>
+        </div>
+
+        <div class="hero-window">
+          <div class="os-window hero-stack">
+            <div class="os-window-bar">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <span class="os-window-title">profile.json</span>
+            </div>
+            <div class="os-window-body">
+              <pre class="code-block"><code id="hero-json"></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section-label">
+          <span class="sl-prompt">$</span>
+          <span>обо мне</span>
+        </div>
+        <div class="terminal-card reveal">
+          <div class="terminal-bar">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+            <span class="terminal-title">bash — ~</span>
+          </div>
+          <div class="terminal-body">
+            <p class="t-cmd">
+              <span class="t-prompt">miras@nis</span><span class="t-sep">:</span><span class="t-path">~</span><span
+                class="t-dollar">$</span> whoami
+            </p>
+            <div class="t-output">
+              <p>
+                <span class="t-key">имя</span><span class="t-colon">:</span> Мирас Даулетбек<br>
+                <span class="t-key">школа</span><span class="t-colon">:</span> Назарбаев Интеллектуальная школа (НИШ),
+                Уральск<br>
+                <span class="t-key">интерес</span><span class="t-colon">:</span> программирование, веб-дизайн<br>
+                <span class="t-key">статус</span><span class="t-colon">:</span> учусь, создаю, соревнуюсь
+              </p>
+              <p class="t-comment"># Коротко обо мне:</p>
+              <p class="t-prose">Мне 15 лет, я учусь в НИШ Уральска и развиваюсь как разработчик. Решаю алгоритмические
+                задачи, участвую в соревнованиях, хакатонах и делаю проекты. Для меня программирование - это не просто
+                хобби, а способ думать и решать задачи.</p>
+              <p class="t-comment"># Несколько фактов:</p>
+              <p class="t-prose">Решил более 100 задач на Codeforces. Участвовал в школьных олимпиадах по информатике и
+                на республикансих хакатонах. Верю, что лучший способ учиться — это создавать настоящие проекты, а не
+                просто смотреть уроки.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="mission" aria-labelledby="mission-heading">
+      <div class="container">
+        <div class="section-label">
+          <span class="sl-prompt">$</span>
+          <span>cat mission.txt</span>
+        </div>
+        <div class="file-card reveal">
+          <div class="file-card-header">
+            <span class="fc-icon">📄</span>
+            <span class="fc-name">mission.txt</span>
+            <span class="fc-size">0.8 КБ</span>
+          </div>
+          <div class="file-card-body">
+            <p class="fc-lead">Стать сильным разработчиком, который соревнуется на международном уровне, выпускает
+              полезные проекты и постоянно растёт в IT — независимо от стартовой точки.</p>
+            <ul class="fc-goals">
+              <li><span class="goal-arrow">→</span> Освоить алгоритмы и структуры данных на уровне ICPC</li>
+              <li><span class="goal-arrow">→</span> Участвовать в международных олимпиадах по информатике</li>
+              <li><span class="goal-arrow">→</span> Создавать продукты, которые решают реальные проблемы людей</li>
+              <li><span class="goal-arrow">→</span> Вносить вклад в open-source сообщества</li>
+              <li><span class="goal-arrow">→</span> Никогда не переставать задавать вопросы и учиться</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="story" aria-labelledby="story-heading">
+      <div class="container">
+        <div class="section-label">
+          <span class="sl-prompt">$</span>
+          <span>cat history.log</span>
+        </div>
+        <div class="timeline">
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-year">2021</span>
+                <span class="tl-tag">начало</span>
+              </div>
+              <h3 class="tl-title">Первые шаги</h3>
+              <p class="tl-desc">Обнаружил, что интернет создан не только для просмотра видео. Написал свою первую
+                HTML-страницу и почувствовал настоящий азарт от «Hello, world» в браузере. Что-то щёлкнуло - и уже не
+                остановиться.</p>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-year">2022</span>
+                <span class="tl-tag">изучение</span>
+              </div>
+              <h3 class="tl-title">Изучение кода</h3>
+              <p class="tl-desc">Освоил Python. Начал понимать логику, циклы и красоту чистых решений сложных задач.
+                Понял, что программирование — это целый способ мышления.</p>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-year">2023</span>
+                <span class="tl-tag">соревнования</span>
+              </div>
+              <h3 class="tl-title">Спортивное программирование</h3>
+              <p class="tl-desc">Погрузился в алгоритмические соревнования. Решил первые задачи на Codeforces,
+                участвовал в школьных олимпиадах. Понял, что спортивное программирование — это настоящий спорт, и я хочу
+                побеждать.</p>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-dot"></div>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-year">2024-2025</span>
+                <span class="tl-tag">создание</span>
+              </div>
+              <h3 class="tl-title">Проекты и хакатоны</h3>
+              <p class="tl-desc">Перешёл от решения задач к созданию продуктов. Участвовал в первых хакатонах, выпустил
+                веб-приложения и научился работать под давлением в команде.</p>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-dot tl-dot--active"></div>
+            <div class="tl-card tl-card--active">
+              <div class="tl-meta">
+                <span class="tl-year">2026</span>
+                <span class="tl-tag tl-tag--active">сейчас</span>
+              </div>
+              <h3 class="tl-title">Сейчас</h3>
+              <p class="tl-desc">Углубляюсь в алгоритмы, веб-разработку и дизайну. Цель ясна, работа идёт каждый день -
+                и каждый день я становлюсь чуть лучше, чем вчера.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="mentor" aria-labelledby="mentor-heading">
+      <div class="container">
+        <div class="section-label">
+          <span class="sl-prompt">$</span>
+          <span>cat наставница.md</span>
+        </div>
+        <div class="mentor-layout">
+          <div class="photo-frame reveal photo-frame--mentor">
+            <div class="photo-frame-bar">
+              <span class="photo-frame-tag">mentor.jpg</span>
+              <span class="photo-frame-caption">Айша Калиматова</span>
+            </div>
+            <div class="avatar-wrap avatar-wrap--mentor">
+              <img src="./imgs/mentor.jpg" alt="Айша Калиматова — мой куратор по веб-разработке">
+            </div>
+          </div>
+
+          <div class="md-card reveal">
+            <div class="md-card-header">
+              <span class="md-badge">наставница.md</span>
+            </div>
+            <div class="md-card-body">
+              <h2 class="md-h1" id="mentor-heading"># Моя наставница — Айша Калиматова</h2>
+              <p class="md-p">Каждому программисту нужен человек, который уже прошёл этот путь. Айша апай - мой куратор
+                по веб-разработке, не просто объясняла синтаксис, она научила меня мыслить как Product Manager и не
+                бояться сложных задач.</p>
+              <h3 class="md-h2">## Что я от неё взял</h3>
+              <ul class="md-list">
+                <li><span class="md-bullet">-</span> Смотреть на дизайн глазами пользователя, а не только разработчика
+                </li>
+                <li><span class="md-bullet">-</span> Продумывать структуру сайта и создавать макеты в Figma и Tilda</li>
+                <li><span class="md-bullet">-</span> Улучшать читаемость и структуру кода через рефакторинг
+                </li>
+                <li><span class="md-bullet">-</span> Оформлять проекты так, чтобы они были понятны в портфолио</li>
+              </ul>
+              <blockquote class="md-quote">
+                «Лучшие программисты — не те, кто знают больше всех, а те, кто не перестают спрашивать "почему".»
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="progress" aria-labelledby="progress-heading">
+      <div class="container">
+        <div class="section-label">
+          <span class="sl-prompt">$</span>
+          <span>cat progress.json</span>
+        </div>
+        <div class="progress-layout reveal">
+          <div class="json-panel">
+            <div class="os-window">
+              <div class="os-window-bar">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+                <span class="os-window-title">progress.json</span>
+              </div>
+              <div class="os-window-body">
+                <pre class="code-block"><code id="progress-json"></code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="skills-panel">
+            <h3 class="skills-panel-title" id="progress-heading">Уровень навыков</h3>
+            <div class="skill-list">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">HTML / CSS</span>
+                  <span class="skill-pct">85%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" style="--target: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">JavaScript</span>
+                  <span class="skill-pct">75%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" style="--target: 75%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Алгоритмы</span>
+                  <span class="skill-pct">60%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill skill-fill--hot" style="--target: 60%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">C++</span>
+                  <span class="skill-pct">60%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" style="--target: 60%"></div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Python</span>
+                  <span class="skill-pct">70%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" style="--target: 70%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="hobbies" aria-labelledby="hobbies-heading">
+      <div class="container">
+        <div class="section-label">
+          <span class="sl-prompt">$</span>
+          <span>cat hobbies.cfg</span>
+        </div>
+        <div class="cfg-card reveal">
+          <div class="cfg-header">
+            <span class="cfg-icon">⚙</span>
+            <span class="cfg-filename" id="hobbies-heading">hobbies.cfg</span>
+          </div>
+          <div class="cfg-body">
+            <p class="cfg-section-label">[хобби]</p>
+            <div class="cfg-rows">
+              <div class="cfg-row">
+                <span class="cfg-key">программирование</span>
+                <span class="cfg-eq">=</span>
+                <span class="cfg-val cfg-true">true</span>
+                <span class="cfg-comment">// главное занятие и страсть</span>
+              </div>
+              <div class="cfg-row">
+                <span class="cfg-key">аниме</span>
+                <span class="cfg-eq">=</span>
+                <span class="cfg-val cfg-true">true</span>
+                <span class="cfg-comment">// интересные истории и атмосфера</span>
+              </div>
+              <div class="cfg-row">
+                <span class="cfg-key">игры</span>
+                <span class="cfg-eq">=</span>
+                <span class="cfg-val cfg-true">true</span>
+                <span class="cfg-comment">// особенно стратегии и логические</span>
+              </div>
+              <div class="cfg-row">
+                <span class="cfg-key">изучение_технологий</span>
+                <span class="cfg-eq">=</span>
+                <span class="cfg-val cfg-true">true</span>
+                <span class="cfg-comment">// всегда включено, не отключается</span>
+              </div>
+              <div class="cfg-row">
+                <span class="cfg-key">путешествия</span>
+                <span class="cfg-eq">=</span>
+                <span class="cfg-val cfg-str">"исследую"</span>
+                <span class="cfg-comment">// новые места = новые взгляды на мир</span>
+              </div>
+            </div>
+            <p class="cfg-section-label">[настройки]</p>
+            <div class="cfg-rows">
+              <div class="cfg-row">
+                <span class="cfg-key">режим_фокуса</span>
+                <span class="cfg-eq">=</span>
+                <span class="cfg-val cfg-num">ON</span>
+              </div>
+              <div class="cfg-row">
+                <span class="cfg-key">уровень_любопытства</span>
+                <span class="cfg-eq">=</span>
+                <span class="cfg-val cfg-num">MAX</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section-label">
+          <span class="sl-prompt">$</span>
+          <span>ls /projects</span>
+        </div>
+        <h2 class="visually-hidden" id="projects-heading">Мои лучшие работы</h2>
+        <div class="projects-grid">
+          <div class="project-card reveal">
+            <div class="project-card-top">
+              <span class="project-type-tag">инструмент</span>
+            </div>
+            <div class="project-preview project-preview--purple" aria-hidden="true"
+              style="--preview-image: url('./imgs/pyshark.png');">
+              <span class="project-preview-tag">preview</span>
+              <span class="project-preview-title">PyShark</span>
+            </div>
+            <h3 class="project-name">PyShark</h3>
+            <p class="project-desc">Сайт для изучения и обучения робототехнике (PyBricks)</p>
+            <div class="project-tags">
+              <span class="ptag">JS</span>
+            </div>
+            <a href="https://mirasruslanjr.github.io/PyShark/" target="_blank" rel="noopener" class="project-link">
+              Открыть проект &rarr;
+            </a>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-card-top">
+              <span class="project-type-tag">хакатон</span>
+            </div>
+            <div class="project-preview project-preview--blue" aria-hidden="true"
+              style="--preview-image: url('./imgs/ecochain.png');">
+              <span class="project-preview-tag">preview</span>
+              <span class="project-preview-title">EcoChain</span>
+            </div>
+            <h3 class="project-name">EcoChain</h3>
+            <p class="project-desc">EcoChain — это платформа, которая объединяет реальные экологические действия, их
+              общественную проверку, карту города, подсчет влияния на CO₂ и образовательную игру, показывающую
+              последствия экологических решений.</p>
+            <div class="project-tags">
+              <span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span>
+            </div>
+            <a href="https://mirasruslanjr.github.io/insomniaNIS/" target="_blank" rel="noopener" class="project-link">
+              Открыть проект &rarr;
+            </a>
+          </div>
+
+          <div class="project-card reveal">
+            <div class="project-card-top">
+              <span class="project-type-tag">спортивное программирование</span>
+            </div>
+            <div class="project-preview project-preview--mono" aria-hidden="true"
+              style="--preview-image: url('./imgs/cfstats.png');">
+              <span class="project-preview-tag">preview</span>
+              <span class="project-preview-title">cfstats</span>
+            </div>
+            <h3 class="project-name">CFStats</h3>
+            <p class="project-desc">Проект по отслеживанию статистики на Codeforces, с геймификацией как на FACEIT.</p>
+            <div class="project-tags">
+              <span class="ptag">JS</span><span class="ptag">Codeforces</span>
+            </div>
+            <a href="https://mirasruslanjr.github.io/cfstats/" target="_blank" rel="noopener" class="project-link">
+              Открыть проект &rarr;
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section github-section" id="github" aria-labelledby="github-heading">
+      <div class="container">
+        <div class="github-block reveal">
+          <div class="gh-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="52" height="52" aria-hidden="true">
+              <path
+                d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+            </svg>
+          </div>
+          <h2 class="gh-title" id="github-heading">Где живёт код</h2>
+          <p class="gh-desc">Все мои проекты, решения и эксперименты — на GitHub. Там видна настоящая история работы:
+            коммиты, ветки и прогресс.</p>
+          <div class="gh-stats">
+            <div class="gh-stat">
+              <span class="gh-stat-num" data-count="12">0</span>
+              <span class="gh-stat-label">Репозитории</span>
+            </div>
+            <div class="gh-stat">
+              <span class="gh-stat-num" data-count="100+">0</span>
+              <span class="gh-stat-label">Коммиты</span>
+            </div>
+            <div class="gh-stat">
+              <span class="gh-stat-num" data-count="4">0</span>
+              <span class="gh-stat-label">Проекта</span>
+            </div>
+          </div>
+          <a href="https://github.com/MirasRuslanJR" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+              <path
+                d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+            </svg>
+            Открыть GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-inner">
+          <span class="footer-brand">[miras.exe]</span>
+          <span class="footer-copy">© <span id="footer-year">2026</span> Мирас Даулетбек · CapEducation</span>
+          <span class="footer-ver">v1.0.0</span>
+        </div>
+      </div>
+    </footer>
+
+
+    <button class="back-to-top" id="back-to-top" aria-label="Наверх">
+      ↑
+    </button>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
